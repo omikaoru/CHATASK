@@ -1,0 +1,21 @@
+version: '2'
+services:
+  cache:
+    image: redis:alpine
+    container_name: pacd3_cache
+    ports:
+      - 6379:6379
+    command: redis-server
+  db:
+    build: ./mariadb
+    container_name: pacd3_db
+    volumes:
+      - data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      TZ: Asia/Tokyo
+    ports:
+      - 3306:3306
+volumes:
+  data:
+    driver: local
