@@ -5,6 +5,20 @@
     <title>新規作成</title>
 </head>
 <body>
-テスト
+<form th:method="post" th:action="@{./}" th:object="${chatCreateForm}">
+    <div>
+        <label>
+            名前：<input type="text" th:field="*{content}"/>
+        </label>
+    </div>
+    <div>
+        <label>
+            メッセージ：<input type="text" th:field="*{message}"/>
+        </label>
+    </div>
+    <div>
+        <input type="submit" value="作成"/>
+    </div>
+</form>
 </body>
 </html>
