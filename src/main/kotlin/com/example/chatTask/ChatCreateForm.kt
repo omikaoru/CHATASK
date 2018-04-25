@@ -8,4 +8,5 @@ class ChatCreateForm {
     @NotBlank
     @Size(max =20)
     var content: String? = null
+    var message: String? = null
 }
